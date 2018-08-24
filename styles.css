@@ -17,12 +17,12 @@
   text-align: left;
 }
 
-#randomize-div {
-  width: 30%;
-  margin-left: 30%;
-  text-align: right;
+#voter-form {
+  position: relative;
 }
 
 #randomize-btn {
-  margin-top: -65px;
+  position: absolute;
+  bottom: 0;
+  left: 5rem;
 }
