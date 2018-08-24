@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wyncode/js-voter-sim.git"
@@ -15,9 +13,10 @@
   "bugs": {
     "url": "https://github.com/wyncode/js-voter-sim/issues"
   },
-  "homepage": "https://github.com/wyncode/js-voter-sim#readme",
-  "devDependencies": {
-    "jest": "^23.5.0",
-    "puppeteer": "^1.7.0"
-  }
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./app.js"
+    ]
+  },
+  "homepage": "https://github.com/wyncode/js-voter-sim#readme"
 }
