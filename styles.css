@@ -1,0 +1,28 @@
+#header-div {
+  text-align: center;
+  background-color: lightblue;
+}
+
+#page-title {
+  font-size: 2rem;
+}
+
+#form-div {
+  text-align: center;
+}
+
+#candidate-form, #voter-form {
+  width: 30%;
+  display: inline-block;
+  text-align: left;
+}
+
+#randomize-div {
+  width: 30%;
+  margin-left: 30%;
+  text-align: right;
+}
+
+#randomize-btn {
+  margin-top: -65px;
+}
