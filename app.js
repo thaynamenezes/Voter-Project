@@ -56,12 +56,12 @@ $("#candidate-form").submit(function(event){
   event.preventDefault();
 });
 
-//vote function
-function vote(){
-voters.forEach(function(voter) {
-  let num = Math.floor(Math.random() * 100) +1
-  let party;
 
+// Choose party function
+// Takes in a voter, and RETURNS a party
+function chooseParty(voter) {
+  let num = Math.floor(Math.random() * 100) + 1
+  let party;
   switch (voter.ideology) {
     case "Liberal":
       if(num <= 60) {
@@ -98,15 +98,42 @@ voters.forEach(function(voter) {
         party = democratCandidates
       }
       break;
-
   }
-  candidate = party[Math.floor(Math.random() * party.length)]
+
+  return party;
+}
+
+
+
+//Vote function
+function vote(){
+
+  // Check if voter exists. If not, return function
+  if(voters.length < 1) {
+    alert('Unexistent voter.')
+    return
+  }
+
+  // Check if candidates exist. If not, return function
+  if(democratCandidates.length < 1 && independentCandidates.length < 1 && republicanCandidates.length < 1) {
+    alert('Choose a candidate!')
+    return
+  }
+
+voters.forEach(function(voter) {
+
+  let party = chooseParty(voter);
+
+  while(party.length < 1) {
+    party = chooseParty(voter);
+  }
+
+  let candidate = party[Math.floor(Math.random() * party.length)]
   candidate.votes++;
+
 })
 
 let allCandidates = democratCandidates.concat(independentCandidates,  republicanCandidates);
-
-console.log(allCandidates);
 
 let winner = allCandidates[0]
 allCandidates.forEach(function(politician) {
@@ -114,7 +141,7 @@ allCandidates.forEach(function(politician) {
     winner = politician;
   }
 })
-alert(winner.name)
+alert(`Winner candidate: ${winner.name} from ${winner.party} party`)
 }
 
 // Click on vote button
